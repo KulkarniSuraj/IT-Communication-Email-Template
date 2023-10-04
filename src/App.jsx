@@ -4,9 +4,7 @@ import Banner from "./components/Banner";
 
 function App() {
   return (
-    <main
-      sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
-    >
+    <main>
       <Container
         sx={{ border: "1px solid black", marginTop: "20px" }}
         maxWidth="sm"
@@ -62,7 +60,7 @@ function App() {
         </Section>
       </Container>
       <Box sx={{ m: 2, display: "flex", justifyContent: "center" }}>
-        <Button variant="contained">Submit</Button>
+        <Button variant="contained">download</Button>
       </Box>
     </main>
   );
