@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
-function Answer({ children }) {
+function Answer({ text }) {
     return <Typography variant="body1">
-        {children}
+        {text}
     </Typography>;
   }
   
