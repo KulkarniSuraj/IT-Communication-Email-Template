@@ -2,12 +2,16 @@ import { Button, Box, Container, TextField } from "@mui/material";
 import Section from "./components/Section";
 import Banner from "./components/Banner";
 import { useState } from "react";
+import DATA from "./data";
 
 function App() {
   const [showPreview, setShowPreview] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
+  }
+  function handlePreview() {
+    setShowPreview((prevValue) => !prevValue);
   }
   return (
     <main>
@@ -17,57 +21,55 @@ function App() {
           maxWidth="sm"
         >
           <Banner />
-          <Section
-            question={"Planned Downtime: Vizportal Production Environment"}
-          >
-            <strong>Activity Description: </strong>
+          <Section question={DATA.downtime_heading.Q}>
+            <strong>{DATA.downtime_heading.Q_desc}</strong>
             <TextField
-              id="standard-multiline-static"
+              id="description"
               multiline
               variant="standard"
-              defaultValue="Unavailability of Vizportal application due to patching activity of server NMVAZ-03"
+              defaultValue={DATA.downtime_heading.A_desc}
               fullWidth
             />
-            <strong>Planned Downtime date and time: </strong>
+            <strong>{DATA.downtime_heading.Q_time}</strong>
 
             <TextField
-              id="standard-multiline-static"
+              id="time"
               multiline
               variant="standard"
-              defaultValue="Friday 24th December 12:00 PM IST to Friday 24th December 4:00 PM IST"
+              defaultValue={DATA.downtime_heading.A_time}
               fullWidth
             />
           </Section>
-          <Section question={"How does this affect me?"}>
+          <Section question={DATA.effect.Q}>
             <TextField
-              id="standard-multiline-static"
+              id="effect"
               multiline
               variant="standard"
-              defaultValue="Viz Portal https://vizport.axolo.com will be inaccessible and unavailable during downtime."
+              defaultValue={DATA.effect.A}
               fullWidth
             />
           </Section>
-          <Section question={"Who is impacted?"}>
+          <Section question={DATA.impact.Q}>
             <TextField
-              id="standard-multiline-static"
+              id="impact"
               multiline
               variant="standard"
-              defaultValue="Employees and contractors with access to Vizportal production. Please cascade this communication to all stakeholders."
+              defaultValue={DATA.impact.A}
               fullWidth
             />
           </Section>
-          <Section question={"Questions and Concerns"}>
+          <Section question={DATA.contact.Q}>
             <TextField
-              id="standard-multiline-static"
+              id="contact"
               multiline
               variant="standard"
-              defaultValue="Please do not reply to this email. In case of any questions or concerns, please drop an email to vizsupport@axolo.com"
+              defaultValue={DATA.contact.A}
               fullWidth
             />
           </Section>
         </Container>
         <Box sx={{ m: 2, display: "flex", justifyContent: "center" }}>
-          <Button variant="outlined" sx={{ mx: 2 }}>
+          <Button variant="outlined" sx={{ mx: 2 }} onClick={handlePreview}>
             Preview
           </Button>
           <Button variant="contained" type="submit">
